@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Dashboard</title>
+    <link rel="stylesheet" th:href="@{/styles/homepage.css}">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap">
+</head>
+<body>
+<header>
+
+
+    <main class="content">
+        <h1>Welcome, <span th:text="${name}"></span></h1>
+    </main>
+
+    <div class="logo">
+        <img src="https://plustek.com/newtools/images/logo.png" alt="Plustek Logo">
+    </div>
+    <div class="logout">
+        <form action="/logout" method="post">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+    </div>
+</header>
+
+<div class="main-container">
+    <!-- Categories Sidebar -->
+    <aside class="sidebar">
+        <h2>Categories</h2>
+        <ul id="categoriesListSidebar">
+            <!-- Categories will be dynamically populated here -->
+        </ul>
+        <button class="manage-categories" id="openCategoryModal" aria-label="Manage Categories">
+            <img src="/icons/add-category.png" alt="Manage Categories Icon" />
+        </button>
+
+    </aside>
+
+    <!-- Links Content -->
+    <section class="content">
+
+        <!-- Add Link Button -->
+        <button class="floating-button" id="openModal" aria-label="Add Link">
+            <img src="/icons/add-link.png" alt="Add Link" class="button-icon">
+        </button>
+
+
+        <!-- Links Container -->
+        <div class="container">
+            <h2 id="currentCategoryTitle">All Links</h2>
+            <div class="cards" id="linksContainer">
+                <!-- Links will be dynamically populated here -->
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Modal for Adding/Editing Links -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2 id="modalTitle">Add Link</h2>
+        <input type="text" id="title" placeholder="Title" required>
+        <input type="url" id="url" placeholder="URL" required>
+        <textarea id="description" rows="4" placeholder="Description" required></textarea>
+        <select id="category" required>
+            <option value="" disabled selected>Select Category</option>
+        </select>
+        <select id="fileType" required>
+            <option value="" disabled selected>Select File Type</option>
+            <option value="docs">Docs</option>
+            <option value="pdf">PDF</option>
+            <option value="excel">Excel</option>
+            <option value="folder">Folder</option>
+        </select>
+        <button id="saveLinkButton">Save Link</button>
+    </div>
+</div>
+
+<!-- Modal for Managing Categories -->
+<div id="categoryModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeCategoryModal">&times;</span>
+        <h2>Manage Categories</h2>
+        <input type="text" id="newCategory" placeholder="New Category" required>
+        <button id="addCategoryButton">Add Category</button>
+        <div id="categoriesListModal"></div>
+    </div>
+</div>
+
+<script src="/js/home.js"></script>
+</body>
+</html>

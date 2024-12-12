@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/styles/style.css}">
+  <title>Login</title>
+  <script>
+    let clickCount = 0;
+
+    function handleLogoClick() {
+      clickCount++;
+      if (clickCount === 3) {
+        window.location.href = '/register'; // Change this to the actual URL of your register page if needed
+      }
+    }
+  </script>
+</head>
+<body>
+<div class="container">
+  <!-- Header with logo -->
+  <div class="header">
+    <img src="https://plustek.com/newtools/images/logo.png" alt="Plustek Logo" onclick="handleLogoClick()">
+  </div>
+
+  <div th:if="${errorMsg}">
+    <h3 style="color: red" th:text="${errorMsg}"></h3>
+  </div>
+
+  <div class="form-box">
+    <div class="form-header">
+      <h2 class="login">Login</h2>
+    </div>
+    <form  th:action= "@{/login}" th:object="${user}" method="post">
+      <div class="input-box">
+        <input th:field="*{username}" type="text" placeholder="Username" required>
+      </div>
+      <div class="input-box">
+        <input th:field="*{password}" type="password" placeholder="Password" required>
+      </div>
+
+      <input type="submit" value="Login" class="submit-btn"/>
+    </form>
+  </div>
+</div>
+</body>
+</html>

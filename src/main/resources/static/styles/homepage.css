@@ -1,0 +1,401 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    height: calc(100vh - 80px); /* Adjust based on header height */
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li:hover,
+.sidebar ul li.active {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* Manage Categories Button */
+.manage-categories {
+    position: fixed; /* Changed from relative to fixed */
+    top: 20px;       /* Position at the top */
+    left: 20px;      /* Align to the left */
+    background: none; /* Remove default button background */
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1001; /* Above other elements except floating-button */
+    width: 60px;
+    height: 60px;
+}
+
+.manage-categories img.button-icon {
+    width: 100%; /* Make the image fill the button */
+    height: 100%;
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+.manage-categories:hover {
+    /* Optional: Add a hover effect if desired */
+    opacity: 0.8;
+}
+
+/* Content Styles */
+.content {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-section h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.header-section p {
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Container */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Current Category Title */
+#currentCategoryTitle {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card .timestamp {
+    font-size: 0.9em;
+    color: #999;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.card-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.card-buttons .edit {
+    background-color: #28a745;
+}
+
+.card-buttons .delete {
+    background-color: #dc3545;
+}
+
+.card-buttons .edit:hover {
+    background-color: #218838;
+}
+
+.card-buttons .delete:hover {
+    background-color: #c82333;
+}
+
+/* Floating Add Button */
+.floating-button {
+    position: fixed;
+    top: 20px; /* Positioned at the top-right corner */
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    /* font-size: 28px; */ /* Remove if using an image */
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1000; /* Ensures the button stays above other elements */
+    background-color: #007BFF;
+}
+
+.floating-button img.button-icon {
+    width: 24px; /* Adjust size as needed */
+    height: 24px;
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+.floating-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+.floating-button:focus {
+    outline: none;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1002; /* Above both buttons */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-content button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Categories List in Modal */
+#categoriesListModal {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.category-item-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.category-item-modal:last-child {
+    border-bottom: none;
+}
+
+.category-item-modal button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+.category-item-modal button:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        height: 200px;
+    }
+
+    .content {
+        height: calc(100vh - 280px); /* Adjust based on header and sidebar height */
+    }
+}
+
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .floating-button,
+    .manage-categories {
+        width: 50px;
+        height: 50px;
+    }
+
+    .floating-button img.button-icon,
+    .manage-categories img.button-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sidebar h2 {
+        font-size: 18px;
+    }
+
+    .content h2 {
+        font-size: 20px;
+    }
+}

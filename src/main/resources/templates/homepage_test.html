@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Plustek Link Dashboard</title>
+    <link rel="stylesheet" th:href="@{/styles/style2.css}">
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://plustek.com/newtools/images/logo.png" alt="Plustek Logo">
+    </div>
+
+    <div class="logout">
+        <form action="/logout" method="post">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+    </div>
+</header>
+
+<main class="content">
+    <h1>Welcome, <span th:text="${name}"></span></h1>
+</main>
+
+</body>
+</html>

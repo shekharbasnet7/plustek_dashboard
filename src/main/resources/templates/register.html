@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <title>Register</title>
+</head>
+<body>
+<div class="container">
+    <!-- Header with logo -->
+    <div class="header">
+        <img src="https://plustek.com/newtools/images/logo.png" alt="Plustek Logo">
+    </div>
+
+    <div class="form-box">
+        <div class="form-header">
+            <h2>Register</h2>
+        </div>
+
+        <div th:if="${errorMsg}">
+            <h3 style="color: red" th:text="${errorMsg}"></h3>
+        </div>
+
+        <form class="form" th:object="${user}" th:action="@{/regForm}" method="post">
+            <div class="input-box">
+                <input type="text" th:field="*{name}" placeholder="Name" required/>
+            </div>
+            <div class="input-box">
+                <input type="text" th:field="*{username}" placeholder="Username" required/>
+            </div>
+            <div class="input-box">
+                <input type="password" th:field="*{password}" placeholder="Password" required/>
+            </div>
+
+            <input type="submit" value="Register" class="submit-btn"/>
+        </form>
+
+        <div class="switch-text">
+            <p>Already have an account? <a th:href="@{/login}">Login</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
